@@ -33,7 +33,7 @@ body {
     display: flex;
     justify-content: right;
     align-items: center;
-    font-size: 24px;
+    font-size: 30px;
 }
 
 #main {
@@ -42,7 +42,7 @@ body {
     display: flex;
     justify-content: right;
     align-items: center;
-    font-size: 48px;
+    font-size: 56px;
 }
 
 .buttons {

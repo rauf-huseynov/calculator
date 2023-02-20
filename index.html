@@ -11,12 +11,12 @@
 <body>
     <div id="calculator">
         <div id="display">
-            <div id="secondary"></div>
-            <div id="main"></div>
+            <div maxlength="10" id="secondary"></div>
+            <div maxlength="10" id="main">0</div>
         </div>
         <div class="buttons">
             <div class="first">
-                <button type="button" class="operators" id="percent">%</button>
+                <button type="button" class="operators twoOperators" id="percent" data-value="%">%</button>
                 <button type="button" class="clear" id="ce">CE</button>
                 <button type="button" class="clear" id="c">C</button>
                 <button type="button" class="clear" id="backspace">&#x232b</button>
@@ -26,35 +26,35 @@
                 <button type="button" class="operators" id="reciprocal">&#x215Fx</button>
                 <button type="button" class="operators" id="squared">x&#x00B2</button>
                 <button type="button" class="operators" id="squareRoot">&#x221Ax</button>
-                <button type="button" class="operators" id="divide">&#x00F7</button>
+                <button type="button" class="operators twoOperators" id="divide" data-value="&#x00F7">&#x00F7</button>
             </div>
 
             <div class="third">
                 <button type="button" class="numbers" id="seven" value="7">7</button>
                 <button type="button" class="numbers" id="eight" value="8">8</button>
                 <button type="button" class="numbers" id="nine" value="9">9</button>
-                <button type="button" class="operators" id="multiply">&#x00D7</button>
+                <button type="button" class="operators twoOperators" id="multiply" data-value="&#x00D7">&#x00D7</button>
             </div>
 
             <div class="fourth">
                 <button type="button" class="numbers" id="four" value="4">4</button>
                 <button type="button" class="numbers" id="five" value="5">5</button>
                 <button type="button" class="numbers" id="six" value="6">6</button>
-                <button type="button" class="operators" id="subtract">&#x2212</button>
+                <button type="button" class="operators twoOperators" id="subtract" data-value="&#x2212">&#x2212</button>
             </div>
 
             <div class="fifth">
-                <button type="button" class="number" id="one" value="1">1</button>
-                <button type="button" class="number" id="two" value="2">2</button>
-                <button type="button" class="number" id="three" value="3">3</button>
-                <button type="button" class="operators" id="add">+</button>
+                <button type="button" class="numbers" id="one" value="1">1</button>
+                <button type="button" class="numbers" id="two" value="2">2</button>
+                <button type="button" class="numbers" id="three" value="3">3</button>
+                <button type="button" class="operators twoOperators" id="add" data-value="+">+</button>
             </div>
 
             <div class="sixth">
-                <button type="button" class="number" id="plusMinusSign">&#x00B1</button>
-                <button type="button" class="number" id="zero" value="0">0</button>
-                <button type="button" class="number" id="dot">.</button>
-                <button type="button" class="operators" id="equal">=</button>
+                <button type="button" class="manipulation" id="plusMinusSign">&#x00B1</button>
+                <button type="button" class="numbers" id="zero" value="0">0</button>
+                <button type="button" class="manipulation" id="dot">.</button>
+                <button type="button" class="equal" id="equal">=</button>
             </div>  
 
         </div>
