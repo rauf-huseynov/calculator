@@ -11,8 +11,8 @@ body {
 }
 
 #calculator {
-    width: 520px;
-    height: 750px;
+    width: 480px;
+    height: 680px;
     display: flex;
     flex-direction: column;
     border: 8px solid rgba(0, 0, 0, 0.815);
@@ -22,9 +22,27 @@ body {
 
 #display {
     width: 100%;
-    height: 200px;
+    height: 160px;
     background-color: rgba(128, 128, 128, 0.603);
     color: rgba(255, 255, 255, 0.74);
+}
+
+#secondary {
+    margin:0;
+    height: 60px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    font-size: 24px;
+}
+
+#main {
+    margin: 0;
+    height: 100px;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    font-size: 48px;
 }
 
 .buttons {
