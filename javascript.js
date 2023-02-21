@@ -1,147 +1,53 @@
-// function add(a, b) {
-//     return a+b;
-// }
+function add(a, b) {
+    const x = parseFloat(a);
+    const y = parseFloat (b);
+    let result = x+y;
+    if(!Number.isInteger(result)) {
+        result = parseFloat(result.toFixed(5));
+    }
+    return result;
+}
 
-// function subtract(a, b) {
-//     return a-b;
-// }
+function subtract(a, b) {
+    const x = parseFloat(a);
+    const y = parseFloat (b);
+    let result = x-y;
+    if(!Number.isInteger(result)) {
+        result = parseFloat(result.toFixed(5));
+    }
+    return result;
+}
 
-// function multiply(a, b) {
-//     return a*b;
-// }
+function multiply(a, b) {
+    const x = parseFloat(a);
+    const y = parseFloat (b);
+    let result = x*y;
+    if(!Number.isInteger(result)) {
+        result = parseFloat(result.toFixed(5));
+    }
+    return result;
+}
 
-// function divide(a, b) {
-//     if (b === 0) {
-//         return "Division by zero"
-//     } else {
-//         return a/b;
-//     }
-// }
-
-// function percent(a, b) {
-//     return a*b/100;
-// }
-
-// function reciprocal(a) {
-//     return 1/a;
-// }
-
-// function squared(a) {
-//     return a**2;
-// }
-
-// function squareRoot(a) {
-//     if (a<0) {
-//         return "Negative number"
-//     } else {
-//         return Math.sqrt(a);
-//     }
-// }
-
-
-// const main = document.querySelector('#main');
-// const secondary = document.querySelector('#secondary');
-
-// const numberButtons = document.querySelectorAll('.numbers');
-// numberButtons.forEach(numberBtn => {
-//     numberBtn.addEventListener('click', () => {
-//         value = parseInt(numberBtn.value);
-//         if(main.textContent == 0) {
-//             main.textContent = value;
-//         } else {
-//             if(main.textContent.length < 15) {
-//                 main.textContent+=value;
-//             }
-//         }
-//     })
-// })
-
-// const twoOperatorButtons = document.querySelectorAll('.basicOperators');
-// twoOperatorButtons.forEach(operatorBtn => {
-//     operatorBtn.addEventListener('click', () => {
-//         const value = operatorBtn.getAttribute('data-value');
-//         if (secondary.textContent.length>0) {
-//             a = parseInt(secondary.textContent);
-//             b = parseInt(main.textContent);
-//             const operatorId = operatorBtn.getAttribute('id');
-//             let result;
-//             switch(operatorId) {
-//                 case "divide":
-//                     result = divide(a, b);
-//                     operation = operatorId;
-//                     break;
-//                 case "multiply":
-//                     result = multiply(a, b);
-//                     operation = operatorId;
-//                     break;
-//                 case "subtract":
-//                     result = subtract(a, b);
-//                     operation = operatorId;
-//                     break;
-//                 case "add":
-//                     result = add(a, b);
-//                     operation = operatorId;
-//                     break;
-//             }
-//             if (typeof result === 'number') {
-//                 secondary.textContent = result + value;
-//                 main.textContent = 0;
-//             } else {
-//                 secondary.textContent = "";
-//                 main.textContent = result;
-//             }
-//         } else {
-//             if(main.textContent.length>0) {
-//                 secondary.textContent = main.textContent + value;
-//                 main.textContent = 0;
-//             }
-//         }
-//     })
-// })
-
-// const clearEntry = document.querySelector('#clearEntry');
-// clearEntry.addEventListener('click', () => {
-//     main.textContent = 0;
-// })
-
-// const clear = document.querySelector('#clear');
-// clear.addEventListener('click', () => {
-//     main.textContent = 0;
-//     secondary.textContent = "";
-// })
-
-// const equal = document.querySelector('#equal');
-// equal.addEventListener('click', () => {
-//     let result;
-//     switch(operation) {
-//         case "divide":
-//             result = divide(a, b);
-//             operation = operatorId;
-//             break;
-//         case "multiply":
-//             result = multiply(a, b);
-//             operation = operatorId;
-//             break;
-//         case "subtract":
-//             result = subtract(a, b);
-//             operation = operatorId;
-//             break;
-//         case "add":
-//             result = add(a, b);
-//             operation = operatorId;
-//             break; 
-//     }
-//     main.textContent = result;
-//     secondary.textContent ="";
-// })
-
-//_____________________________________________________________________________________________________
+function divide(a, b) {
+    const x = parseFloat(a);
+    const y = parseFloat (b);
+    if (y === 0) {
+        return "Division by zero"
+    } else {
+        let result = x/y;
+        if(!Number.isInteger(result)) {
+            result = parseFloat(result.toFixed(5));
+        }
+        return result;
+    }
+}
 
 const main = document.querySelector('#main');
 const secondary = document.querySelector('#secondary');
 const operatorDisplay = document.querySelector('#operatorDisplay');
 let firstNumber = 0;
-let secondNumber = "";
+let secondNumber = '';
+let operatorSign = '';
 main.textContent = firstNumber;
 secondary.textContent = secondNumber;
 
@@ -149,13 +55,13 @@ const numberButtons = document.querySelectorAll('.numbers');
 numberButtons.forEach(numberBtn => {
     numberBtn.addEventListener('click', () => {
         value = numberBtn.value;
-        if(main.textContent == 0) {
+        if(main.textContent == 0 || main.textContent == 'Division by zero') {
             firstNumber = value;
-            main.textContent = value;
+            main.textContent = firstNumber;
         } else {
             if(main.textContent.length < 15) {
                 firstNumber+=value;
-                main.textContent += value;;
+                main.textContent = firstNumber;
             }
         }
     })
@@ -164,18 +70,20 @@ numberButtons.forEach(numberBtn => {
 
 
 function operate(operator, first, second) {
+    first = parseFloat(first);
+    second = parseFloat(second);
     switch (operator) {
         case 'add':
-            add(first, second);
+            return add(first, second);
             break;
         case 'subtract':
-            subtract(first, second);
+            return subtract(first, second);
             break;
         case 'multiply':
-            multiply(first, second);
+            return multiply(first, second);
             break;
         case 'divide':
-            divide(first, second);
+            return divide(first, second);
             break;
     }
 }
@@ -184,13 +92,61 @@ function operate(operator, first, second) {
 
 const clearEntry = document.querySelector('#clearEntry');
 clearEntry.addEventListener('click', () => {
-    main.textContent = 0;
+    firstNumber = 0;
+    main.textContent = firstNumber;
 })
 
 const clear = document.querySelector('#clear');
 clear.addEventListener('click', () => {
-    main.textContent = 0;
-    secondary.textContent = "";
-    operatorDisplay.textContent = "";
+    secondNumber = '';
+    firstNumber = 0;
+    main.textContent = firstNumber;
+    secondary.textContent = secondNumber;
+    operatorSign = '';
+    operatorDisplay.textContent = '';
 })
 
+const basicOperatorsButtons = document.querySelectorAll('.basicOperators');
+basicOperatorsButtons.forEach (basicOperatorBtn => {
+    basicOperatorBtn.addEventListener('click', () => {
+        
+        if (secondNumber == '') {
+            secondNumber = firstNumber;
+            operatorDisplay.textContent = basicOperatorBtn.getAttribute('data-value');
+            firstNumber = 0;
+            main.textContent = firstNumber;
+            secondary.textContent = secondNumber;
+            operatorSign = basicOperatorBtn.id;
+        } else {
+            let result = operate(operatorSign, secondNumber, firstNumber);
+            secondNumber = '';
+            secondary.textContent = secondNumber;
+            firstNumber = result;
+            main.textContent = firstNumber;
+            operatorDisplay.textContent = '';
+        }
+    })
+})
+
+const equal = document.querySelector('#equal');
+equal.addEventListener('click', () => {
+    if (operatorDisplay.textContent != '') {
+        let result = operate (operatorSign, secondNumber, firstNumber);
+        secondNumber = '';
+        secondary.textContent = secondNumber;
+        firstNumber = result;
+        main.textContent = firstNumber;
+        operatorDisplay.textContent = '';
+    }
+})
+
+const backspace = document.querySelector('#backspace');
+backspace.addEventListener('click', () => {
+    if (firstNumber.length > 1) {
+        firstNumber = firstNumber.toString().slice(0, -1);
+        main.textContent = firstNumber;
+    } else if (firstNumber.length = 1) {
+        firstNumber = 0;
+        main.textContent = firstNumber;
+    }
+})
