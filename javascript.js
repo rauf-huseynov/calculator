@@ -403,5 +403,10 @@ document.addEventListener("keydown", function (event) {
       firstNumber = 0;
       main.textContent = firstNumber;
     }
+  } else if (event.key === ".") {
+    if (!firstNumber.toString().includes(".")) {
+      firstNumber = firstNumber.toString() + ".";
+      main.textContent = firstNumber;
+    }
   }
 });
