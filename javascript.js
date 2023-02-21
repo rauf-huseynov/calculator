@@ -272,3 +272,4 @@ dotBtn.addEventListener('click', () => {
         main.textContent = firstNumber;
     }
 })
+
